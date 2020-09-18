@@ -26,10 +26,10 @@
 		function onClickVerify(e) {
 			e.preventDefault();
 			grecaptcha.ready(function () {
-				grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
+				var widgetId = grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
 					console.log('Form submitted');
 					console.log(token);
-					console.log(grecaptcha.getResponse());
+					console.log(grecaptcha.getResponse(widgetId));
 					document.getElementById("contact1-form").submit();
 				});
 			});
