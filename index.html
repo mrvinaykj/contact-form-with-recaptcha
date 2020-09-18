@@ -25,15 +25,13 @@
 	<script>
 		function onClickVerify(e) {
 			e.preventDefault();
-			var readyResponse = grecaptcha.ready(function () {
-				var executeResponse = grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
+			grecaptcha.ready(function () {
+				grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
 					console.log('Form submitted');
 					console.log(token);
 					document.getElementById("contact1-form").submit();
 				});
-				console.log(executeResponse);
 			});
-			console.log(readyResponse);
 		}
 	</script>
 </head>
