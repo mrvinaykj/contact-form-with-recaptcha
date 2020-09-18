@@ -23,21 +23,7 @@
 	<!--===============================================================================================-->
 	<script src="https://www.google.com/recaptcha/api.js?render=6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy"></script>
 	<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
-	<script>
-		function onClickVerify(e) {
-			e.preventDefault();
-			grecaptcha.ready(function () {
-				grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
-					console.log('Form submitted');
-					console.log(token);
-					document.getElementById("contact1-form").submit();
-				});
-			});
-		}
-		function onSubmit(token) {
-			document.getElementById("contact1-form").submit();
-		}
-	</script>
+	
 </head>
 
 <body>
@@ -101,6 +87,21 @@
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
+	</script>
+	<script>
+		function onClickVerify(e) {
+			e.preventDefault();
+			grecaptcha.ready(function () {
+				grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
+					var form = document.getElementById("contact1-form");
+					form.innerHTML = form.innerHTML + "<input type='hidden' name='g-recaptcha-response' name='g-recaptcha-response' value='"+ token +"'>"
+					form.submit();
+				});
+			});
+		}
+		function onSubmit(token) {
+			document.getElementById("contact1-form").submit();
+		}
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
