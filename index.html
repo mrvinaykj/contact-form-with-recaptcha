@@ -58,7 +58,7 @@
 					<textarea class="input1" name="message" placeholder="Message"></textarea>
 					<span class="shadow-input1"></span>
 				</div>
-				<input type='hidden' name='g-recaptcha-response' id='g-recaptcha-response' value=''>
+				<input type="text" name="recaptchaResponse" id="recaptchaResponse" value="" style="display: none;">
 				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn" onclick="onClickVerify(event)">
 					<!-- <button class="contact1-form-btn g-recaptcha"
@@ -95,7 +95,7 @@
 			grecaptcha.ready(function () {
 				grecaptcha.execute('6Lchvc0ZAAAAAFiVuTc8l5JzL9eiTPKeO1-Sgaoy', { action: 'submit' }).then(function (token) {
 					var form = document.getElementById("contact1-form");
-					var recaptchaResponse = document.getElementById("g-recaptcha-response");
+					var recaptchaResponse = document.getElementById("recaptchaResponse");
 					recaptchaResponse.value = token;
 					form.submit();
 				});
